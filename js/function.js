@@ -12,7 +12,8 @@
           navHeight_initial,
           searchboxHeight = searchbox.outerHeight(),
           searchboxPadding = 10,
-          translateElements = $('body').children(':not(#header,#wpadminbar,script,style)') ;
+          translateElements = $('body').children(':not(#header,#wpadminbar,script,style)'),
+          tid ;
       navHeight_initial = navHeight = nav.height();
       nav.height(0).addClass('triggered');
       searchbox.css({'height':0,'padding':0});
@@ -27,7 +28,10 @@
           }
           searchbox.transition({height:searchboxHeight,padding:searchboxPadding},200,'out');
           translateElements.transition({y:searchboxHeight + searchboxPadding*2 },200,'out');
-          $('#s').focus();
+          tid && clearTimeout(tid);
+          tid = setTimeout(function(){
+            $('#s')[0].focus();
+          },220);
         }else{
           searchbox.transition({height:0,padding:0},200,'out');
           translateElements.transition({y:0 },200,'out');
@@ -68,16 +72,17 @@
           _this.toggleClass('active');
         });
       });
+
+      //show site tagline(description) if it's hidden by option 
+      if( $('.tagline-hidden').length != 0 ){
+        $('#header .brand').hover(function(){
+          $('.tagline-hidden').animate({'top':'+=35'});
+        },function(){
+          $('.tagline-hidden').animate({'top':'-=35'});
+        });
+      }
     }
-    
-    //show site tagline(description) if it's hidden by option 
-    if( $('.tagline-hidden').length != 0 ){
-      $('#header .brand').hover(function(){
-        $('.tagline-hidden').animate({'top':'+=35'});
-      },function(){
-        $('.tagline-hidden').animate({'top':'-=35'});
-      });
-    }
+
     
     //slider
     if($('#zSlider').length != 0){
