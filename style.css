@@ -78,7 +78,7 @@ img.aligncenter {margin-top: 12px;margin-top: 0.857142857rem;margin-bottom: 12px
 /* WordPress default style End*/
 
 /* header Begin  */
-#header{padding:15px 0;margin-bottom:20px;background:rgba(68,68,68,0.88);filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#E1444444,endcolorstr=#E1444444);position:relative;}
+#header{padding:15px 0;margin-bottom:20px;background:rgba(68,68,68,0.5);filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#E1444444,endcolorstr=#E1444444);position:relative;}
 .is-mobile #header{padding:0;}
 .navbar{margin-bottom:0;position:relative;z-index:2;}
 .navbar-inner{background:#e8e7e7;border:0;padding-left:0;padding-right:0;}
